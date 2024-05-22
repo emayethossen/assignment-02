@@ -5,6 +5,7 @@ const app = express();
 // parsers
 app.use(express.json());
 
+// application routes
 app.use("/api/products", ProductRoutes);
 
 app.get("/", (req: Request, res: Response) => {

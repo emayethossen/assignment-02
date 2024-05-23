@@ -3,7 +3,10 @@ import { TOrder } from "./order.interface";
 import { Product } from "../products/product.model";
 
 class AppError extends Error {
-  constructor(public message: string, public statusCode: number) {
+  constructor(
+    public message: string,
+    public statusCode: number,
+  ) {
     super(message);
   }
 }
@@ -49,9 +52,7 @@ export const OrderServices = {
   createOrder,
   getAllOrders,
   getOrdersByEmail,
-  AppError
+  AppError,
 };
 
-export {
-  AppError
-}
+export { AppError };

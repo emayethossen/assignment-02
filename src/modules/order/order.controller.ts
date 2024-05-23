@@ -14,11 +14,11 @@ const createOrder = async (req: Request, res: Response) => {
       message: "Order created successfully!",
       data: result,
     });
-  } catch (err:unknown) {
+  } catch (err: unknown) {
     if (err instanceof z.ZodError) {
       res.status(400).json({
         success: false,
-        message: err.errors.map(e => e.message).join(", "),
+        message: err.errors.map((e) => e.message).join(", "),
       });
     } else if (err instanceof OrderServices.AppError) {
       res.status(err.statusCode).json({
@@ -45,7 +45,7 @@ const getAllOrders = async (req: Request, res: Response) => {
       message: "Orders fetched successfully!",
       data: result,
     });
-  } catch (err:unknown) {
+  } catch (err: unknown) {
     res.status(500).json({
       success: false,
       message: "Could not fetch orders",
@@ -67,11 +67,11 @@ const getOrdersByEmail = async (req: Request, res: Response) => {
       message: `Orders fetched successfully for email: ${email}`,
       data: result,
     });
-  } catch (err:unknown) {
+  } catch (err: unknown) {
     if (err instanceof z.ZodError) {
       res.status(400).json({
         success: false,
-        message: err.errors.map(e => e.message).join(", "),
+        message: err.errors.map((e) => e.message).join(", "),
       });
     } else {
       res.status(500).json({

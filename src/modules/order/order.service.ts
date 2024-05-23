@@ -2,18 +2,11 @@ import { Order } from "./order.model";
 import { TOrder } from "./order.interface";
 import { Product } from "../products/product.model";
 
-// Create an order
-// const createOrder = async (orderData: TOrder) => {
-//   // Check if the product exists
-//   const product = await Product.findById(orderData.productId);
-//   if (!product) {
-//     throw new Error("Product not found");
-//   }
-
-//   // If product exists, create the order
-//   const result = await Order.create(orderData);
-//   return result;
-// };
+class AppError extends Error {
+  constructor(public message: string, public statusCode: number) {
+    super(message);
+  }
+}
 
 // Create an order
 const createOrder = async (orderData: TOrder) => {
@@ -56,4 +49,9 @@ export const OrderServices = {
   createOrder,
   getAllOrders,
   getOrdersByEmail,
+  AppError
 };
+
+export {
+  AppError
+}

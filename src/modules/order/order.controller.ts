@@ -44,7 +44,9 @@ const getOrdersByEmail = async (req: Request, res: Response) => {
   try {
     const { email } = req.query;
     if (!email) {
-      return res.status(400).json({ success: false, message: 'Email parameter is required' });
+      return res
+        .status(400)
+        .json({ success: false, message: "Email parameter is required" });
     }
 
     const orders = await OrderServices.getOrdersByEmail(email.toString());
@@ -62,9 +64,8 @@ const getOrdersByEmail = async (req: Request, res: Response) => {
   }
 };
 
-
 export const OrderControllers = {
   createOrder,
   getAllOrders,
-  getOrdersByEmail
+  getOrdersByEmail,
 };

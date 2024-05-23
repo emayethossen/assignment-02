@@ -21,7 +21,10 @@ const getProductById = async (id: string) => {
 
 // Update a product
 const updateProduct = async (id: string, payLoad: Partial<TProduct>) => {
-  const result = await Product.findByIdAndUpdate(id, payLoad, { new: true, runValidators: true });
+  const result = await Product.findByIdAndUpdate(id, payLoad, {
+    new: true,
+    runValidators: true,
+  });
   return result;
 };
 
@@ -33,7 +36,7 @@ const deleteProduct = async (id: string) => {
 
 // Search Product
 const searchProducts = async (searchTerm: string) => {
-  const regex = new RegExp(searchTerm, 'i'); 
+  const regex = new RegExp(searchTerm, "i");
   const result = await Product.find({ name: { $regex: regex } });
   return result;
 };

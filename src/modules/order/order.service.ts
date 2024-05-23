@@ -1,4 +1,4 @@
-import {Order} from "./order.model";
+import { Order } from "./order.model";
 import { TOrder } from "./order.interface";
 import { Product } from "../products/product.model";
 
@@ -55,5 +55,5 @@ const getOrdersByEmail = async (email: string) => {
 export const OrderServices = {
   createOrder,
   getAllOrders,
-  getOrdersByEmail
+  getOrdersByEmail,
 };
